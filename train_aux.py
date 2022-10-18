@@ -58,11 +58,6 @@ def train(hyp, opt, device, tb_writer=None):
 
     # Configure
     plots = not opt.evolve  # create plots
-    cuda = device.type != 'cpu'
-
-    nc = 1 if opt.single_cls else int(data_dict['nc'])  # number of classes
-    names = ['item'] if opt.single_cls and len(data_dict['names']) != 1 else data_dict['names']  # class names
-    assert len(names) == nc, '%g names found for nc=%g dataset in %s' % (len(names), nc, opt.data)  # check
 
     # Model
     pretrained = weights.endswith('.pt')
